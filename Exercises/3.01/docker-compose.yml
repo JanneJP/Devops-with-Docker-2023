@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  server:
+    container_name: server
+    image: jannejp/devops2023-3.01
+    ports:
+      - 8080:8080
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    environment:
+      -  WATCHTOWER_POLL_INTERVAL=60
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
